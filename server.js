@@ -1,28 +1,44 @@
 const http = require("http");
+const path = require("path");
+const fs = require("fs");
+const url = require("url");
+
+const FAVICON = path.join(__dirname, "favicon.ico");
 
 let requestsCount = 0;
-const server = http.createServer((request, response) => {
-  if (request.url === "/favicon.ico") {
-    response.writeHead(200, { "Content-Type": "image/x-icon" });
-    response.end();
+const server = http.createServer((req, res) => {
+  const pathname = url.parse(req.url).pathname;
+  console.log(pathname);
+  // if (request.url === "/favicon.ico") {
+  //   response.writeHead(200, { "Content-Type": "image/x-icon" });
+  //   response.end();
+  //   return;
+  // }
+
+  // If this request is asking for our favicon, respond with it.
+  if (pathname === "/favicon.ico") {
+    res.setHeader("Content-Type", "image/x-icon");
+    fs.createReadStream(FAVICON).pipe(res);
     return;
   }
+
   requestsCount++;
-  switch (request.url) {
+  switch (req.url) {
     case "/":
-    case "/students":
-      response.write("STUDENTS");
+      res.write("Home page");
       break;
-    case "/":
+    case "/students":
+      res.write("STUDENTS");
+      break;
     case "/courses":
-      response.write("FRONT + BACK");
+      res.write("FRONT + BACK");
       break;
     default:
-      response.write("404 not found");
+      res.write("404 not found");
   }
 
-  response.write(" - MHY: " + requestsCount);
-  response.end();
+  res.write(" - MHY: " + requestsCount);
+  res.end();
 });
 
 server.listen(3003);
