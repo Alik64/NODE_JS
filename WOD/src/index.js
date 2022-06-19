@@ -1,12 +1,9 @@
 const express = require("express");
+const v1Router = require("./v1");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// For testing purpose
-
-app.get("/", (req, res) => {
-  res.send("<h1>Hello mfrs!</h1>");
-});
+app.use("/api/v1", v1Router);
 
 app.listen(PORT, () => {
   console.log(`Server is deployed on port ${PORT} :)`);
