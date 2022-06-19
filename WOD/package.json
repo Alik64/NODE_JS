@@ -1,0 +1,12 @@
+{
+  "name": "wod",
+  "version": "1.0.0",
+  "description": "Create, update and delete your WOD's (Workouts of the Day)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
