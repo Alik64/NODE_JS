@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.router();
-const characterController = require("");
+const characterController = require("../controllers/characterController.js");
 
 router.get("/", characterController.getAllCharacters);
 router.get("/:characterId", characterController.getOneCharacter);
