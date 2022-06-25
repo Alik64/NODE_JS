@@ -1,4 +1,4 @@
-const Character = require("../../database/Character.js");
+const Character = require("../database/Character");
 
 const getAllCharacters = () => {
   const allCharacters = Character.getAllCharacters();

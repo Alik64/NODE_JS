@@ -1,4 +1,4 @@
-const characterSevice = require("../src/services/characterSevice.js");
+const characterSevice = require("../services/characterSevice.js");
 
 const getAllCharacters = (req, res) => {
   const allCharacters = characterSevice.getAllCharacters();
