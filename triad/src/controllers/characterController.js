@@ -7,10 +7,8 @@ const getAllCharacters = (req, res) => {
 
 const getOneCharacter = (req, res) => {
   //   console.log(req.params);
-  const character = characterSevice.getOneCharacter();
-  res.send(
-    `Get an existing character by it's id : <span style="font-size:1.2rem; color:blue">${req.params.characterId}</span>`
-  );
+  const character = characterSevice.getOneCharacter(req.params.characterId);
+  res.send({ status: "OK", data: character });
 };
 
 const createNewCharacter = (req, res) => {

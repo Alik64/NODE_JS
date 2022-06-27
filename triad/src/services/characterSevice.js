@@ -5,8 +5,10 @@ const getAllCharacters = () => {
   return allCharacters;
 };
 
-const getOneCharacter = () => {
-  return;
+const getOneCharacter = (id) => {
+  const allCharacters = Character.getAllCharacters();
+  const filtered = allCharacters.filter((character) => character.id === id);
+  return filtered;
 };
 
 const createNewCharacter = () => {
