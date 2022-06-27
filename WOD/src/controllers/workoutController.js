@@ -7,10 +7,11 @@ const getAllWorkouts = (req, res) => {
 
 const getOneWorkout = (req, res) => {
   //   console.log(req.params);
-  const workout = workoutSevice.getOneWorkout();
-  res.send(
-    `Get an existing workout by it's id : <span style="font-size:1.2rem; color:blue">${req.params.workoutId}</span>`
-  );
+  const workout = workoutSevice.getOneWorkout(req.params.workoutId);
+  // res.send(
+  //   `Get an existing workout by it's id : <span style="font-size:1.2rem; color:blue">${req.params.workoutId}</span>`
+  // );
+  res.send({ status: "OK", data: workout });
 };
 
 const createNewWorkout = (req, res) => {

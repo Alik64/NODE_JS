@@ -1,7 +1,7 @@
 {
     "workouts": [
       {
-        "id": "61dbae02-c147-4e28-863c-db7bd402b2d6",
+        "id": "1",
         "name": "Tommy V",
         "mode": "For Time",
         "equipment": [
@@ -25,7 +25,7 @@
         ]
       },
       {
-        "id": "4a3d9aaa-608c-49a7-a004-66305ad4ab50",
+        "id": "2",
         "name": "Dead Push-Ups",
         "mode": "AMRAP 10",
         "equipment": [
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "id": "d8be2362-7b68-4ea4-a1f6-03f8bc4eede7",
+        "id": "3",
         "name": "Heavy DT",
         "mode": "5 Rounds For Time",
         "equipment": [

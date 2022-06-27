@@ -5,8 +5,10 @@ const getAllWorkouts = () => {
   return allWorkouts;
 };
 
-const getOneWorkout = () => {
-  return;
+const getOneWorkout = (id) => {
+  const allWorkouts = Workout.getAllWorkouts();
+  const filtered = allWorkouts.filter((workout) => workout.id === id);
+  return filtered;
 };
 
 const createNewWorkout = () => {
