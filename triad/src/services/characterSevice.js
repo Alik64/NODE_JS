@@ -1,4 +1,5 @@
 const Character = require("../database/Character");
+const { v4: uuid } = require("uuid");
 
 const getAllCharacters = () => {
   const allCharacters = Character.getAllCharacters();
@@ -11,8 +12,16 @@ const getOneCharacter = (id) => {
   return filtered;
 };
 
-const createNewCharacter = () => {
-  return;
+const createNewCharacter = (newCharacter) => {
+  const characterToInsert = {
+    ...newCharacter,
+    id: uuid(),
+    createdAt: new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" }),
+    updatedAt: new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" }),
+  };
+
+  const createdCharacter = Character.createNewCharacter(characterToInsert);
+  return createdCharacter;
 };
 
 const updateOneCharacter = () => {

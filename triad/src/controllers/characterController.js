@@ -6,14 +6,33 @@ const getAllCharacters = (req, res) => {
 };
 
 const getOneCharacter = (req, res) => {
-  //   console.log(req.params);
   const character = characterSevice.getOneCharacter(req.params.characterId);
   res.send({ status: "OK", data: character });
 };
 
 const createNewCharacter = (req, res) => {
-  const createdCharacter = characterSevice.createNewCharacter();
-  res.send("Create a new character");
+  const { body } = req;
+
+  if (
+    !body.name ||
+    !body.description ||
+    !body.thumbnail ||
+    !body.humanName ||
+    !body.isLike
+  ) {
+    return;
+  }
+
+  const newCharacter = {
+    name: body.name,
+    description: body.description,
+    thumbnail: body.thumbnail,
+    humanName: body.humanName,
+    isLike: body.isLike,
+  };
+
+  const createdCharacter = characterSevice.createNewCharacter(newCharacter);
+  res.status(201).send({ status: "OK", data: createdCharacter });
 };
 
 const updateOneCharacter = (req, res) => {
