@@ -19,21 +19,29 @@ const getOneWorkout = (req, res) => {
 
 const createNewWorkout = (req, res) => {
   const { body } = req;
-
   if (!body.name || !body.mode || !body.equipment || !body.exercises) {
-    return;
+    res.status(400).send({
+      status: "FAILED",
+      data: {
+        error:
+          "One of the following keys in request body is missing or is empty : 'name', 'mode', 'equipment', 'exercises', 'trainerTips'",
+      },
+    });
   }
-
   const newWorkout = {
     name: body.name,
     mode: body.mode,
     equipment: body.equipment,
     exercises: body.exercises,
   };
-
-  const createdWorkout = workoutService.createNewWorkout(newWorkout);
-
-  res.status(201).send({ status: "OK", data: createdWorkout });
+  try {
+    const createdWorkout = workoutService.createNewWorkout(newWorkout);
+    res.status(201).send({ status: "OK", data: createdWorkout });
+  } catch (error) {
+    res
+      .status(error?.status || error)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
 };
 
 const updateOneWorkout = (req, res) => {
