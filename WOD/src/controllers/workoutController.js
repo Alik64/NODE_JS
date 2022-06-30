@@ -46,7 +46,7 @@ const updateOneWorkout = (req, res) => {
     return;
   }
 
-  const updatedWorkout = workoutService.updateOneWorkout(body, workoutId);
+  const updatedWorkout = workoutService.updateOneWorkout(workoutId, body);
   res.send({ status: "OK", data: updatedWorkout });
 };
 
