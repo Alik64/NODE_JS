@@ -22,7 +22,7 @@ const createNewWorkout = (newWorkout) => {
   return createdWorkout;
 };
 
-const updateOneWorkout = (workoutId) => {
+const updateOneWorkout = (workoutId, changes) => {
   const updatedworkout = Workout.updateOneWorkout(workoutId, changes);
   return updatedworkout;
 };
