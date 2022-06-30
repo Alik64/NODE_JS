@@ -6,8 +6,7 @@ const getAllWorkouts = () => {
   return allWorkouts;
 };
 
-const getOneWorkout = (id) => {
-  const allWorkouts = Workout.getAllWorkouts();
+const getOneWorkout = (workoutId) => {
   const filtered = allWorkouts.filter((workout) => workout.id === id);
   return filtered;
 };
