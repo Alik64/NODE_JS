@@ -2,14 +2,21 @@ const Character = require("../database/Character");
 const { v4: uuid } = require("uuid");
 
 const getAllCharacters = () => {
-  const allCharacters = Character.getAllCharacters();
-  return allCharacters;
+  try {
+    const allCharacters = Character.getAllCharacters();
+    return allCharacters;
+  } catch (error) {
+    throw error;
+  }
 };
 
-const getOneCharacter = (id) => {
-  const allCharacters = Character.getAllCharacters();
-  const filtered = allCharacters.filter((character) => character.id === id);
-  return filtered;
+const getOneCharacter = (characterId) => {
+  try {
+    const character = Character.getOneCharacter(characterId);
+    return character;
+  } catch (error) {
+    throw error;
+  }
 };
 
 const createNewCharacter = (newCharacter) => {
@@ -19,17 +26,29 @@ const createNewCharacter = (newCharacter) => {
     createdAt: new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" }),
     updatedAt: new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" }),
   };
-
-  const createdCharacter = Character.createNewCharacter(characterToInsert);
-  return createdCharacter;
+  try {
+    const createdCharacter = Character.createNewCharacter(characterToInsert);
+    return createdCharacter;
+  } catch (error) {
+    throw error;
+  }
 };
 
-const updateOneCharacter = () => {
-  return;
+const updateOneCharacter = (characterId, changes) => {
+  try {
+    const updatedCharacter = Character.updateOneCharacter(characterId, changes);
+    return updatedCharacter;
+  } catch (error) {
+    throw error;
+  }
 };
 
-const deleteOneCharacter = () => {
-  return;
+const deleteOneCharacter = (characterId) => {
+  try {
+    Character.deleteOneCharacter(characterId);
+  } catch (error) {
+    throw error;
+  }
 };
 
 module.exports = {
