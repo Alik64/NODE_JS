@@ -2,7 +2,11 @@ const DB = require("./db.json");
 const { saveToDatabase } = require("./utils");
 
 const getAllCharacters = () => {
-  return DB.characters;
+  try {
+    return DB.characters;
+  } catch (error) {
+    throw { status: 500, message: error };
+  }
 };
 
 const createNewCharacter = (newCharacter) => {
