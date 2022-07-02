@@ -1,6 +1,6 @@
-# REST API for a CrossFit Training Application.
+# REST API for a Triple Triad Game
 
-Create, update and delete your WOD's (Workouts of the Day)
+Create, update and delete Characters
 
 ## ARCHITECTURE
 
