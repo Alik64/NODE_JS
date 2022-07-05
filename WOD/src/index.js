@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const v1workoutRouter = require("./v1/routes/workoutRoutes");
+const v1workoutRouter = require("./v1/routes/workoutRoutes.js");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
