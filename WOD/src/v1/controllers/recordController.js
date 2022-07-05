@@ -12,7 +12,11 @@ const getRecordForWorkout = (req, res) => {
   }
   try {
     const record = recordService.getRecordForWorkout(workoutId);
-    res.send({ status: "OK", data: record });
+
+    res.send({
+      status: "OK",
+      data: record,
+    });
   } catch (error) {
     res.status(400).send({ status: "FAILED", data: error?.message || error });
   }
