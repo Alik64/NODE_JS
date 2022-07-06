@@ -1,0 +1,47 @@
+#Get all records
+GET http://localhost:8080/api/v1/records
+
+###
+#Get one record by ID
+GET http://localhost:8080/api/v1/records/ad75d475-ac57-44f4-a02a-8f6def58ff56
+
+###
+#Get records for record
+GET http://localhost:8080/api/v1/records/4a3d9aaa-608c-49a7-a004-66305ad4ab50/records
+
+###
+# Create new record
+POST http://localhost:8080/api/v1/records
+content-type: application/json
+
+{
+  "name": "POST from request.rest",
+  "mode": "AMRAP 20",
+  "equipment": [
+    "rack",
+    "barbell",
+    "abmat"
+  ],
+  "exercises": [
+    "15 toes to bars",
+    "10 thrusters",
+    "30 abmat sit-ups"
+  ]
+ 
+}
+###
+# Update record
+PATCH   http://localhost:8080/api/v1/records/61dbae02-c147-4e28-863c-db7bd402b2d6
+content-type: application/json
+
+{
+  "name": "PATCH Tommy V",
+  "equipment": [
+    "rack",
+    "barbell",
+    "abmat"
+  ]
+}
+###
+# Delete record
+DELETE  http://localhost:8080/api/v1/records/61dbae02-c147-4e28-863c-db7bd402b2d6
