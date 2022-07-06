@@ -7,7 +7,24 @@ const getAllRecords = (req, res) => {
   } catch (error) {
     res
       .status(error?.status || 500)
-      .send({ status: "FAILED", data: error?.message || error });
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
+};
+
+const getOneRecord = (req, res) => {
+  const {
+    params: { recordId },
+  } = req;
+  if (!recordId) {
+    res.status(400).send({ status: "FAILED, data:" });
+  }
+  try {
+    const record = recordService.getOneRecord(recordId);
+    res.send({ status: "OK", data: record });
+  } catch (error) {
+    res
+      .status(error.status || 500)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
   }
 };
 const getRecordForWorkout = (req, res) => {
@@ -31,4 +48,4 @@ const getRecordForWorkout = (req, res) => {
     res.status(400).send({ status: "FAILED", data: error?.message || error });
   }
 };
-module.exports = { getRecordForWorkout, getAllRecords };
+module.exports = { getRecordForWorkout, getAllRecords, getOneRecord };
