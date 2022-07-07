@@ -39,9 +39,18 @@ const createNewRecord = (newRecord) => {
   }
 };
 
+const deleteOneRecord = (recordId) => {
+  try {
+    Record.deleteOneRecord(recordId);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   getRecordForWorkout,
   getAllRecords,
   getOneRecord,
   createNewRecord,
+  deleteOneRecord,
 };

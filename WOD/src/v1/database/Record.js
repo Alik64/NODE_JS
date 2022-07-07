@@ -49,9 +49,28 @@ const createNewRecord = (newRecord) => {
     return newRecord;
   } catch (error) {}
 };
+
+const deleteOneRecord = (recordId) => {
+  try {
+    const indexForDeleting = DB.records.findIndex(
+      (record) => record.id === recordId
+    );
+    if (indexForDeleting === -1) {
+      throw {
+        status: 400,
+        message: `Can't find a record with id ${recordId}`,
+      };
+    }
+    DB.records.splice(indexForDeleting, 1);
+    saveToDatabase(DB);
+  } catch (error) {
+    throw { status: error?.status || 500, message: error?.message || error };
+  }
+};
 module.exports = {
   getRecordForWorkout,
   getAllRecords,
   getOneRecord,
   createNewRecord,
+  deleteOneRecord,
 };
