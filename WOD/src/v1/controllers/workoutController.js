@@ -41,6 +41,7 @@ const createNewWorkout = (req, res) => {
           "One of the following keys in request body is missing or is empty : 'name', 'mode', 'equipment', 'exercises'",
       },
     });
+    return;
   }
   const newWorkout = {
     name: body.name,
