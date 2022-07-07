@@ -1,4 +1,5 @@
 const DB = require("./db.json");
+const { saveToDatabase } = require("./utils");
 
 const getAllRecords = () => {
   try {
@@ -32,4 +33,25 @@ const getRecordForWorkout = (workoutId) => {
     throw { status: error?.status || 500, message: error?.message || error };
   }
 };
-module.exports = { getRecordForWorkout, getAllRecords, getOneRecord };
+
+const createNewRecord = (newRecord) => {
+  try {
+    const isAlreadyAdded =
+      DB.records.findIndex((record) => record.id === newRecord.id) > -1;
+    if (isAlreadyAdded) {
+      throw {
+        status: 400,
+        message: `Record with id : ${newRecord.id} is already exists`,
+      };
+    }
+    DB.records.push(newRecord);
+    saveToDatabase(DB);
+    return newRecord;
+  } catch (error) {}
+};
+module.exports = {
+  getRecordForWorkout,
+  getAllRecords,
+  getOneRecord,
+  createNewRecord,
+};

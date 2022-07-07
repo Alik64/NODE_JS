@@ -48,4 +48,39 @@ const getRecordForWorkout = (req, res) => {
     res.status(400).send({ status: "FAILED", data: error?.message || error });
   }
 };
-module.exports = { getRecordForWorkout, getAllRecords, getOneRecord };
+
+const createNewRecord = (req, res) => {
+  const { body } = req;
+
+  if (!body.workout || !body.record) {
+    res.status(400).send({
+      status: "FAILED",
+      data: {
+        error:
+          "One of following keys in request body is missing or is empty : 'workout','record",
+      },
+    });
+    return;
+  }
+
+  const newRecord = {
+    workout: body.workout,
+    record: body.record,
+  };
+
+  try {
+    const createdRecord = recordService.createNewRecord(newRecord);
+    res.status(201).send({ status: "OK", data: createdRecord });
+    console.log("newRecord : ", newRecord);
+  } catch (error) {
+    res
+      .status(error?.status || error)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
+};
+module.exports = {
+  getRecordForWorkout,
+  getAllRecords,
+  getOneRecord,
+  createNewRecord,
+};

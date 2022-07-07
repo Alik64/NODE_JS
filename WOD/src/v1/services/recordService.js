@@ -1,4 +1,5 @@
 const Record = require("../database/Record.js");
+const { v4: uuid } = require("uuid");
 
 const getAllRecords = () => {
   try {
@@ -24,4 +25,23 @@ const getRecordForWorkout = (workoutId) => {
     throw error;
   }
 };
-module.exports = { getRecordForWorkout, getAllRecords, getOneRecord };
+const createNewRecord = (newRecord) => {
+  const recordToInsert = {
+    ...newRecord,
+    id: uuid(),
+    createdAt: new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" }),
+  };
+  try {
+    const createdRecord = Record.createNewRecord(recordToInsert);
+    return createdRecord;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = {
+  getRecordForWorkout,
+  getAllRecords,
+  getOneRecord,
+  createNewRecord,
+};

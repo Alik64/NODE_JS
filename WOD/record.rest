@@ -6,8 +6,8 @@ GET http://localhost:8080/api/v1/records
 GET http://localhost:8080/api/v1/records/0bff586f-2017-4526-9e52-fe3ea46d55ab
 
 ###
-#Get records for record
-GET http://localhost:8080/api/v1/records/4a3d9aaa-608c-49a7-a004-66305ad4ab50/records
+#Get records for workout ID
+GET http://localhost:8080/api/v1/workouts/4a3d9aaa-608c-49a7-a004-66305ad4ab50/records
 
 ###
 # Create new record
@@ -15,9 +15,8 @@ POST http://localhost:8080/api/v1/records
 content-type: application/json
 
 {
-  "id": "0bff586f-2017-4526-9e52-fe3ea46d55ac",
-  "workout": "d8be2362-7b68-4ea4-a1f6-03f8bc4eede7",
-  "record": "6:23 minutes"
+  "workout": "d8be2362-7b68-4ea4-a1f6-03f8bc4eede7"
+ 
 }
 ###
 # Update record

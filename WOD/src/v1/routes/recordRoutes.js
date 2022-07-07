@@ -5,7 +5,7 @@ const recordController = require("../controllers/recordController.js");
 router.get("/", recordController.getAllRecords);
 router.get("/:recordId", recordController.getOneRecord);
 
-// router.post("/", recordController.createNewRecord);
+router.post("/", recordController.createNewRecord);
 
 // router.patch("/:recordId", recordController.updateOneRecord);
 
