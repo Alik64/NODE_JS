@@ -9,6 +9,9 @@ const getAllWorkouts = (filterParams) => {
         workout.mode.toLowerCase().includes(filterParams.mode)
       );
     }
+    if (filterParams.length) {
+      return DB.workouts.slice(0, filterParams.length);
+    }
     return workouts;
   } catch (error) {
     throw { status: 500, message: error };
