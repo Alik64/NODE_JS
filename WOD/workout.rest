@@ -14,12 +14,13 @@ GET http://localhost:8080/api/v1/workouts/4a3d9aaa-608c-49a7-a004-66305ad4ab50/r
 
 # ?length=
 GET http://localhost:8080/api/v1/workouts?length=3
-
 ###
-# ?page=
 
+# ?page=
 GET http://localhost:8080/api/v1/workouts?page=2
 ###
+
+
 # Create new workout
 POST http://localhost:8080/api/v1/workouts
 content-type: application/json
