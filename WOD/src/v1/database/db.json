@@ -2,7 +2,7 @@
   "workouts": [
     {
       "id": "61dbae02-c147-4e28-863c-db7bd402b2d6",
-      "name": "PATCH Tommy V",
+      "name": "1 - PATCH Tommy V",
       "mode": "For Time",
       "equipment": ["rack", "barbell", "abmat"],
       "exercises": [
@@ -24,7 +24,7 @@
     },
     {
       "id": "4a3d9aaa-608c-49a7-a004-66305ad4ab50",
-      "name": "Dead Push-Ups",
+      "name": "2 - Dead Push-Ups",
       "mode": "AMRAP 10",
       "equipment": ["barbell"],
       "exercises": ["15 deadlifts", "15 hand-release push-ups"],
@@ -38,7 +38,7 @@
     },
     {
       "id": "d8be2362-7b68-4ea4-a1f6-03f8bc4eede7",
-      "name": "Heavy DT",
+      "name": "3 - Heavy DT",
       "mode": "5 Rounds For Time",
       "equipment": ["barbell", "rope"],
       "exercises": ["12 deadlifts", "9 hang power cleans", "6 push jerks"],
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "name": "Core Buster",
+      "name": "4 - Core Buster",
       "mode": "AMRAP 20",
       "equipment": ["rack", "barbell", "abmat"],
       "exercises": ["15 toes to bars", "10 thrusters", "30 abmat sit-ups"],
@@ -65,7 +65,7 @@
       "updatedAt": "4/22/2022, 5:50:17 PM"
     },
     {
-      "name": "POST from request.rest",
+      "name": " 5 - POST from request.rest",
       "mode": "AMRAP 20",
       "equipment": ["rack", "barbell", "abmat"],
       "exercises": ["15 toes to bars", "10 thrusters", "30 abmat sit-ups"],
@@ -74,7 +74,7 @@
       "updatedAt": "08/07/2022, 00:19:33"
     },
     {
-      "name": "Jumping (Not) Made Easy",
+      "name": "6 - Jumping (Not) Made Easy",
       "mode": "AMRAP 12",
       "equipment": ["jump rope"],
       "exercises": ["10 burpees", "25 double-unders"],
@@ -86,7 +86,7 @@
       "updatedAt": "4/25/2022, 2:45:28 PM"
     },
     {
-      "name": "Burpee Meters",
+      "name": "7 - Burpee Meters",
       "mode": "3 Rounds For Time",
       "equipment": ["Row Erg"],
       "exercises": [
@@ -105,7 +105,7 @@
       "updatedAt": "4/25/2022, 2:48:53 PM"
     },
     {
-      "name": "Dumbbell Rower",
+      "name": "8 - Dumbbell Rower",
       "mode": "AMRAP 15",
       "equipment": ["Dumbbell"],
       "exercises": [

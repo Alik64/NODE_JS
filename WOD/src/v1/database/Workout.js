@@ -2,15 +2,26 @@ const DB = require("./db.json");
 const { saveToDatabase } = require("./utils");
 
 const getAllWorkouts = (filterParams) => {
+  const { page, mode, length } = filterParams;
   try {
     let workouts = DB.workouts;
-    if (filterParams.mode) {
-      return DB.workouts.filter((workout) =>
-        workout.mode.toLowerCase().includes(filterParams.mode)
+
+    if (page) {
+      let pageSize = 5;
+      let firstElementOnPage = (page - 1) * pageSize;
+
+      return DB.workouts.slice(
+        firstElementOnPage,
+        firstElementOnPage + pageSize
       );
     }
-    if (filterParams.length) {
-      return DB.workouts.slice(0, filterParams.length);
+    if (mode) {
+      return DB.workouts.filter((workout) =>
+        workout.mode.toLowerCase().includes(mode)
+      );
+    }
+    if (length) {
+      return DB.workouts.slice(0, length);
     }
     return workouts;
   } catch (error) {

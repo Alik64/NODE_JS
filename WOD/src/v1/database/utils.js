@@ -5,5 +5,14 @@ const saveToDatabase = (DB) => {
     encoding: "utf-8",
   });
 };
+// (Page number -1 ) * page size + 1
+const paginator = (totalItemsCount, pageSize) => {
+  const pagesCount = Math.ceil(totalItemsCount / pageSize); // Nb de pages total
+  const pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
+  return pages;
+};
 
-module.exports = { saveToDatabase };
+module.exports = { saveToDatabase, paginator };
