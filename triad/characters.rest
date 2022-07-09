@@ -10,15 +10,18 @@ GET http://localhost:5001/api/v1/characters/1011334
 #Get characters using querry params
 
 # ?length=
-GET http://localhost:5001/api/v1/characters?length=3
+GET http://localhost:5001/api/v1/characters?length=2
 ###
 
 # ?page=
-GET http://localhost:5001/api/v1/characters?page=2
+GET http://localhost:5001/api/v1/characters?page=1
 ###
 
-# ?isLike=
+# ?isLike=true
 GET http://localhost:5001/api/v1/characters?isLike=true
+###
+# ?isLike=false
+GET http://localhost:5001/api/v1/characters?isLike=false
 ###
 
 

@@ -1,9 +1,9 @@
 const Character = require("../database/Character");
 const { v4: uuid } = require("uuid");
 
-const getAllCharacters = () => {
+const getAllCharacters = (filterParams) => {
   try {
-    const allCharacters = Character.getAllCharacters();
+    const allCharacters = Character.getAllCharacters(filterParams);
     return allCharacters;
   } catch (error) {
     throw error;

@@ -10,18 +10,15 @@ const getAllWorkouts = (filterParams) => {
       let pageSize = 5;
       let firstElementOnPage = (page - 1) * pageSize;
 
-      return DB.workouts.slice(
-        firstElementOnPage,
-        firstElementOnPage + pageSize
-      );
+      return workouts.slice(firstElementOnPage, firstElementOnPage + pageSize);
     }
     if (mode) {
-      return DB.workouts.filter((workout) =>
+      return workouts.filter((workout) =>
         workout.mode.toLowerCase().includes(mode)
       );
     }
     if (length) {
-      return DB.workouts.slice(0, length);
+      return workouts.slice(0, length);
     }
     return workouts;
   } catch (error) {

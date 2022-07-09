@@ -67,7 +67,7 @@
         "path": "https://cdni.russiatoday.com/rbthmedia/images/2017.11/original/5a0ac41085600a6c456d2a06.jpg"
       },
       "humanName": "Zmei",
-      "isLike": "false",
+      "isLike": false,
       "id": "88e9e2db-2e88-4dc8-9f7d-f916609da5e8",
       "createdAt": "29/06/2022, 16:33:43",
       "updatedAt": "29/06/2022, 16:33:43"
@@ -79,7 +79,7 @@
         "path": "https://media.gettyimages.com/vectors/vector-superhero-silhouette-with-sunburst-effect-background-vector-id1162040662?s=170667a"
       },
       "humanName": "Testirovchik",
-      "isLike": "true",
+      "isLike": true,
       "id": "e8223af3-f6c7-48d9-97fd-78c159a6cc2d",
       "createdAt": "09/07/2022, 18:42:51",
       "updatedAt": "09/07/2022, 18:42:51",

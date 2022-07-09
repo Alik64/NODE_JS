@@ -1,9 +1,28 @@
 const DB = require("./db.json");
 const { saveToDatabase } = require("./utils");
 
-const getAllCharacters = () => {
+const getAllCharacters = (filterParams) => {
+  const { length, page, isLike } = filterParams;
+
   try {
-    return DB.characters;
+    let characters = DB.characters;
+
+    if (length) {
+      return characters.slice(0, length);
+    }
+    if (page) {
+      let pageSize = 3;
+      let firstElementOnPage = (page - 1) * pageSize;
+      return characters.slice(
+        firstElementOnPage,
+        firstElementOnPage + pageSize
+      );
+    }
+    if (isLike) {
+      const bool = JSON.parse(isLike);
+      return characters.filter((character) => character.isLike === bool);
+    }
+    return characters;
   } catch (error) {
     throw { status: 500, message: error };
   }

@@ -1,8 +1,13 @@
 const characterSevice = require("../services/characterSevice.js");
 
 const getAllCharacters = (req, res) => {
+  const { length, page, isLike } = req.query;
   try {
-    const allCharacters = characterSevice.getAllCharacters();
+    const allCharacters = characterSevice.getAllCharacters({
+      length,
+      page,
+      isLike,
+    });
     res.send({ status: "OK", data: allCharacters });
   } catch (error) {
     res
