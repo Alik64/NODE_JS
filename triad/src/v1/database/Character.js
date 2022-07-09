@@ -84,7 +84,7 @@ const updateOneCharacter = (characterId, changes) => {
     const updatedCharacter = {
       ...DB.characters[indexForUpdate],
       ...changes,
-      updateAt: new Date().toLocaleString("fr-Fr", {
+      updatedAt: new Date().toLocaleString("fr-Fr", {
         timeZone: "Europe/Paris",
       }),
     };
