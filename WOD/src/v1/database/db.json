@@ -88,7 +88,7 @@
     {
       "name": "7 - Burpee Meters",
       "mode": "3 Rounds For Time",
-      "equipment": ["Row Erg"],
+      "equipment": ["row erg"],
       "exercises": [
         "Row 500 meters",
         "21 burpees",
@@ -107,7 +107,7 @@
     {
       "name": "8 - Dumbbell Rower",
       "mode": "AMRAP 15",
-      "equipment": ["Dumbbell"],
+      "equipment": ["dumbbell"],
       "exercises": [
         "15 dumbbell rows, left arm",
         "15 dumbbell rows, right arm",

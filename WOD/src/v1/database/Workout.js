@@ -2,7 +2,8 @@ const DB = require("./db.json");
 const { saveToDatabase } = require("./utils");
 
 const getAllWorkouts = (filterParams) => {
-  const { page, mode, length } = filterParams;
+  const { page, mode, length, equipment } = filterParams;
+  console.log("filterParams : ", filterParams);
   try {
     let workouts = DB.workouts;
 
@@ -19,6 +20,12 @@ const getAllWorkouts = (filterParams) => {
     }
     if (length) {
       return workouts.slice(0, length);
+    }
+
+    if (equipment) {
+      return workouts.filter((workout) =>
+        workout.equipment.includes(equipment)
+      );
     }
     return workouts;
   } catch (error) {

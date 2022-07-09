@@ -24,6 +24,12 @@ GET http://localhost:8080/api/v1/workouts?page=2
 GET http://localhost:8080/api/v1/workouts?mode=amrap
 ###
 
+# ?equipment=
+GET http://localhost:8080/api/v1/workouts?equipment=dumbbell
+###
+GET http://localhost:8080/api/v1/workouts?equipment=row%20erg
+###
+
 
 # Create new workout
 POST http://localhost:8080/api/v1/workouts
