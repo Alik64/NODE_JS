@@ -20,6 +20,7 @@ const getOneCharacter = (characterId) => {
         message: `Can't find a character with id ${characterId}`,
       };
     }
+    return character;
   } catch (error) {
     throw {
       status: error?.status || 500,
@@ -37,7 +38,7 @@ const createNewCharacter = (newCharacter) => {
     if (isAlreadyAdded) {
       throw {
         status: 400,
-        message: `Character with the name ${character.name} already exist.`,
+        message: `Character with the name ${newCharacter.name} already exist.`,
       };
     }
 

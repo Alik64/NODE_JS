@@ -1,0 +1,49 @@
+#Get all characters
+GET http://localhost:5001/api/v1/characters
+
+###
+#Get one character by ID (Spiderman)
+GET http://localhost:5001/api/v1/characters/1011334
+
+
+###
+#Get characters using querry params
+
+# ?length=
+GET http://localhost:5001/api/v1/characters?length=3
+###
+
+# ?page=
+GET http://localhost:5001/api/v1/characters?page=2
+###
+
+# ?isLike=
+GET http://localhost:5001/api/v1/characters?isLike=true
+###
+
+
+# Create new character
+POST http://localhost:5001/api/v1/characters
+content-type: application/json
+
+ {
+    "name": "Test Man",
+    "description": "Test from character.rest file ",
+    "thumbnail": {
+      "path": "https://media.gettyimages.com/vectors/vector-superhero-silhouette-with-sunburst-effect-background-vector-id1162040662?s=170667a"
+      },
+    "humanName": "Testirovchik",
+    "isLike": "true"
+  }
+###
+# Update character
+PATCH http://localhost:5001/api/v1/characters/5f76f3cb-6cb5-4565-9c79-ee1c3dac273f
+content-type: application/json
+
+{
+  "name": "Test for Spiderman"
+}
+###
+# Delete character
+DELETE http://localhost:5001/api/v1/characters/5f76f3cb-6cb5-4565-9c79-ee1c3dac273
+
