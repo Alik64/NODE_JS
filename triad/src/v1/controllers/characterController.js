@@ -94,6 +94,7 @@ const deleteOneCharacter = (req, res) => {
   const {
     params: { characterId },
   } = req;
+  console.log("characterId : ", characterId);
   if (typeof characterId === "undefined") {
     res.status(400).send({
       status: "FAILED",
@@ -101,7 +102,7 @@ const deleteOneCharacter = (req, res) => {
     });
   }
   try {
-    characterSevice.deleteOneCharacter();
+    characterSevice.deleteOneCharacter(characterId);
     res.status(204).send({ status: "OK" });
   } catch (error) {
     res

@@ -37,13 +37,13 @@ content-type: application/json
   }
 ###
 # Update character
-PATCH http://localhost:5001/api/v1/characters/5f76f3cb-6cb5-4565-9c79-ee1c3dac273f
+PATCH http://localhost:5001/api/v1/characters/e8223af3-f6c7-48d9-97fd-78c159a6cc2d
 content-type: application/json
 
 {
-  "name": "Test for Spiderman"
+  "name": "Test for Testman"
 }
 ###
 # Delete character
-DELETE http://localhost:5001/api/v1/characters/5f76f3cb-6cb5-4565-9c79-ee1c3dac273
+DELETE http://localhost:5001/api/v1/characters/e8223af3-f6c7-48d9-97fd-78c159a6cc2d
 
