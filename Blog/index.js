@@ -2,6 +2,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 mongoose
@@ -15,6 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 4444;
 
 app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("<h1>Hello world</h1>");
 });
