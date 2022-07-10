@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 app.use("/api/v1/workouts", cors(), v1workoutRouter);
 app.use("/api/v1/records", cors(), v1recordRouter);
 
-app.listen(PORT, () => {
+app.listen(PORT, (error) => {
+  if (error) {
+    return error;
+  }
   console.log(`Server is deployed on port ${PORT} :)`);
 });
