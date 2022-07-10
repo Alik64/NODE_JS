@@ -1,0 +1,9 @@
+GET http://localhost:4444/
+###
+POST http://localhost:4444/auth/login
+content-type: application/json
+
+{
+    "email" : "test@test.ru",
+    "password" : "test"
+}
