@@ -22,7 +22,9 @@ const getAllCharacters = (filterParams) => {
       const bool = JSON.parse(isLike);
       return characters.filter((character) => character.isLike === bool);
     }
-    return characters;
+    let pageSize = 10;
+    let firstElementOnPage = 0;
+    return characters.slice(firstElementOnPage, firstElementOnPage + pageSize);
   } catch (error) {
     throw { status: 500, message: error };
   }
@@ -56,9 +58,10 @@ const createNewCharacter = (newCharacter) => {
 
     if (isAlreadyAdded) {
       throw {
-        status: 400,
+        status: 409,
         message: `Character with the name ${newCharacter.name} already exist.`,
       };
+      return;
     }
 
     DB.characters.push(newCharacter);
@@ -120,3 +123,37 @@ module.exports = {
   updateOneCharacter,
   deleteOneCharacter,
 };
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Character:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *           example: e8223af3-f6c7-48d9-97fd-78c159a6cc2d
+ *         name:
+ *           type: string
+ *           example: Capitan Marvel
+ *         description:
+ *           type: string
+ *           example: Dr. Bruce Banner lives a life etc...
+ *         thumbnail:
+ *           type: object
+ *           properties:
+ *            path:
+ *               type: string
+ *               example: https://firebasestorage.googleapis.com/v0/b/it-course-84ddd.appspot.com/o/marvel-game%2Fcapitan-marvel.png?alt=media&token=fb83366e-4902-4541-a732-2efbb55147e5
+ *         humanName:
+ *           type: string
+ *           example: John Doe
+ *         createdAt:
+ *           type: string
+ *           example: 4/20/2022, 2:21:56 PM
+ *         updatedAt:
+ *           type: string
+ *           example: 4/20/2022, 2:21:56 PM
+
+ */

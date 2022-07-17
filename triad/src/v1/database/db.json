@@ -8,7 +8,9 @@
         "path": "https://firebasestorage.googleapis.com/v0/b/it-course-84ddd.appspot.com/o/marvel-game%2Fspider-man.png?alt=media&token=8ff4b083-81ed-449f-823c-c79110735d1b"
       },
       "humanName": "Peter Parker",
-      "isLike": false
+      "isLike": false,
+      "createdAt": "09/07/2022, 18:42:51",
+      "updatedAt": "17/07/2022, 23:20:05"
     },
     {
       "id": "1021331",
@@ -18,7 +20,9 @@
         "path": "https://firebasestorage.googleapis.com/v0/b/it-course-84ddd.appspot.com/o/marvel-game%2Fdoctor-strange.png?alt=media&token=299d8900-328f-4b0d-9116-aa9e0308a4b6"
       },
       "humanName": "Stephen Strange",
-      "isLike": false
+      "isLike": false,
+      "createdAt": "09/07/2022, 18:42:51",
+      "updatedAt": "17/07/2022, 23:20:05"
     },
     {
       "id": "1167381",
@@ -28,7 +32,9 @@
         "path": "https://firebasestorage.googleapis.com/v0/b/it-course-84ddd.appspot.com/o/marvel-game%2Fcapitan-america.png?alt=media&token=80c42b19-614d-46fa-9c83-8ab4ff218495"
       },
       "humanName": "Steve Rogers",
-      "isLike": false
+      "isLike": false,
+      "createdAt": "09/07/2022, 18:42:51",
+      "updatedAt": "17/07/2022, 23:20:05"
     },
     {
       "id": "1127131",
@@ -38,7 +44,9 @@
         "path": "https://firebasestorage.googleapis.com/v0/b/it-course-84ddd.appspot.com/o/marvel-game%2Firon-man.png?alt=media&token=e9a4443f-0dbc-4f49-aef9-7f8e7b261fab"
       },
       "humanName": "Tony Stark",
-      "isLike": false
+      "isLike": false,
+      "createdAt": "09/07/2022, 18:42:51",
+      "updatedAt": "17/07/2022, 23:20:05"
     },
     {
       "id": "1113431",
@@ -48,7 +56,9 @@
         "path": "https://firebasestorage.googleapis.com/v0/b/it-course-84ddd.appspot.com/o/marvel-game%2Fhulk.png?alt=media&token=5ae03f4c-e513-4b3c-bae2-c82e6d6add8a"
       },
       "humanName": "Bruce Banner",
-      "isLike": false
+      "isLike": false,
+      "createdAt": "09/07/2022, 18:42:51",
+      "updatedAt": "17/07/2022, 23:20:05"
     },
     {
       "id": "1010536",
@@ -58,7 +68,9 @@
         "path": "https://firebasestorage.googleapis.com/v0/b/it-course-84ddd.appspot.com/o/marvel-game%2Fcapitan-marvel.png?alt=media&token=fb83366e-4902-4541-a732-2efbb55147e5"
       },
       "humanName": "Carol Danvers",
-      "isLike": false
+      "isLike": false,
+      "createdAt": "09/07/2022, 18:42:51",
+      "updatedAt": "17/07/2022, 23:20:05"
     },
     {
       "name": "Zmei Gorynich",
@@ -73,7 +85,7 @@
       "updatedAt": "29/06/2022, 16:33:43"
     },
     {
-      "name": "Test for Testman",
+      "name": "Test for Testman3",
       "description": "Test from character.rest file ",
       "thumbnail": {
         "path": "https://media.gettyimages.com/vectors/vector-superhero-silhouette-with-sunburst-effect-background-vector-id1162040662?s=170667a"
@@ -82,8 +94,19 @@
       "isLike": true,
       "id": "e8223af3-f6c7-48d9-97fd-78c159a6cc2d",
       "createdAt": "09/07/2022, 18:42:51",
-      "updatedAt": "09/07/2022, 18:42:51",
-      "updateAt": "09/07/2022, 21:17:08"
+      "updatedAt": "17/07/2022, 23:20:05"
+    },
+    {
+      "name": "Test Manffffff",
+      "description": "Test from character.rest file ",
+      "thumbnail": {
+        "path": "https://media.gettyimages.com/vectors/vector-superhero-silhouette-with-sunburst-effect-background-vector-id1162040662?s=170667a"
+      },
+      "humanName": "Testirovchik",
+      "isLike": "true",
+      "id": "6e271d32-e4fa-464c-90f6-f6af0b39caed",
+      "createdAt": "17/07/2022, 23:25:06",
+      "updatedAt": "17/07/2022, 23:25:06"
     }
   ]
 }
