@@ -17,19 +17,8 @@ const PORT = process.env.PORT || 4444;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("<h1>Hello world</h1>");
-});
-
-app.post("/auth/login", (req, res) => {
-  const { body } = req;
-
-  const token = jwt.sign(
-    { email: body.email, fullName: "John Doe" },
-    "secret123"
-  );
-  console.log("body : ", body);
-  res.json({ success: true, token });
+app.post("/auth/register", (req, res) => {
+    
 });
 
 app.listen(PORT, (error) => {

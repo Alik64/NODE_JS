@@ -3,7 +3,7 @@ const { saveToDatabase } = require("./utils");
 
 const getAllWorkouts = (filterParams) => {
   const { page, mode, length, equipment } = filterParams;
-  console.log("filterParams : ", filterParams);
+
   try {
     let workouts = DB.workouts;
 

@@ -5,7 +5,6 @@ GET http://localhost:5001/api/v1/characters
 #Get one character by ID (Spiderman)
 GET http://localhost:5001/api/v1/characters/1011334
 
-
 ###
 #Get characters using querry params
 
@@ -24,11 +23,9 @@ GET http://localhost:5001/api/v1/characters?isLike=true
 GET http://localhost:5001/api/v1/characters?isLike=false
 ###
 
-
 # Create new character
 POST http://localhost:5001/api/v1/characters
 content-type: application/json
-
  {
     "name": "Test Man",
     "description": "Test from character.rest file ",
@@ -39,10 +36,10 @@ content-type: application/json
     "isLike": "true"
   }
 ###
+
 # Update character
 PATCH http://localhost:5001/api/v1/characters/e8223af3-f6c7-48d9-97fd-78c159a6cc2d
 content-type: application/json
-
 {
   "name": "Test for Testman"
 }
