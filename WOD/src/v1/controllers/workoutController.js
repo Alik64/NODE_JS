@@ -16,7 +16,15 @@ const getAllWorkouts = (req, res) => {
       .send({ status: "FAILED", data: { error: error?.message || error } });
   }
 };
-
+const getRandomWorkout = async (req, res) => {
+  try {
+    const randomWorkout = await workoutService.getRandomWorkout();
+    res.send({ status: "OK", data: randomWorkout });
+  } catch (error) {
+    res.status(error?.status || 500);
+    res.send({ status: "FAILED", data: { error: error?.message || error } });
+  }
+};
 const getOneWorkout = (req, res) => {
   const {
     params: { workoutId },
@@ -110,6 +118,7 @@ const deleteOneWorkout = (req, res) => {
 
 module.exports = {
   getAllWorkouts,
+  getRandomWorkout,
   getOneWorkout,
   createNewWorkout,
   updateOneWorkout,

@@ -2,6 +2,11 @@
 GET http://localhost:8080/api/v1/workouts
 
 ###
+
+#Get random workout
+GET http://localhost:8080/api/v1/workouts/random
+
+###
 #Get one workout by ID
 GET http://localhost:8080/api/v1/workouts/61dbae02-c147-4e28-863c-db7bd402b2d6
 

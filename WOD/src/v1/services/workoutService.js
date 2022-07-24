@@ -10,6 +10,15 @@ const getAllWorkouts = (filterParams) => {
   }
 };
 
+const getRandomWorkout = async () => {
+  try {
+    const randomWorkout = await Workout.getRandomWorkout();
+    console.log("randomWorkout from Service : ", randomWorkout);
+    return randomWorkout;
+  } catch (error) {
+    throw error;
+  }
+};
 const getOneWorkout = (workoutId) => {
   try {
     const workout = Workout.getOneWorkout(workoutId);
@@ -53,6 +62,7 @@ const deleteOneWorkout = (workoutId) => {
 
 module.exports = {
   getAllWorkouts,
+  getRandomWorkout,
   getOneWorkout,
   createNewWorkout,
   updateOneWorkout,

@@ -1,5 +1,5 @@
 const DB = require("./db.json");
-const { saveToDatabase } = require("./utils");
+const { saveToDatabase, useRandomItems } = require("./utils");
 
 const getAllWorkouts = (filterParams) => {
   const { page, mode, length, equipment } = filterParams;
@@ -32,7 +32,16 @@ const getAllWorkouts = (filterParams) => {
     throw { status: 500, message: error };
   }
 };
-
+const getRandomWorkout = async () => {
+  try {
+    let workouts = DB.workouts;
+    const randomWorkout = await useRandomItems(workouts, 1, workouts.length);
+    console.log("randomWorkout : ", randomWorkout);
+    return randomWorkout;
+  } catch (error) {
+    throw { status: 500, message: error };
+  }
+};
 const getOneWorkout = (workoutId) => {
   try {
     const workout = DB.workouts.find((workout) => workout.id === workoutId);
@@ -114,6 +123,7 @@ const deleteOneWorkout = (workoutId) => {
 
 module.exports = {
   getAllWorkouts,
+  getRandomWorkout,
   createNewWorkout,
   getOneWorkout,
   updateOneWorkout,
