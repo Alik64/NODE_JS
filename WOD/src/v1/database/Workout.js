@@ -36,7 +36,6 @@ const getRandomWorkout = async () => {
   try {
     let workouts = DB.workouts;
     const randomWorkout = await useRandomItems(workouts, 1, workouts.length);
-    console.log("randomWorkout : ", randomWorkout);
     return randomWorkout;
   } catch (error) {
     throw { status: 500, message: error };
