@@ -62,7 +62,7 @@ const createNewWorkout = (newWorkout) => {
     if (isAlreadyAdded) {
       throw {
         status: 400,
-        message: `Workout with the name ${newWorkout.name} already exists`,
+        message: `Workout with the id ${newWorkout.id} already exists`,
       };
     }
     DB.workouts.push(newWorkout);

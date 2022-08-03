@@ -47,12 +47,12 @@ const getOneWorkout = (req, res) => {
 
 const createNewWorkout = (req, res) => {
   const { body } = req;
-  if (!body.name || !body.mode || !body.equipment || !body.exercises) {
+  if (!body.name || !body.mode || !body.exercises || !body.timer) {
     res.status(400).send({
       status: "FAILED",
       data: {
         error:
-          "One of the following keys in request body is missing or is empty : 'name', 'mode', 'equipment', 'exercises'",
+          "One of the following keys in request body is missing or is empty : 'name', 'mode', 'timer', 'exercises'",
       },
     });
     return;
@@ -60,7 +60,8 @@ const createNewWorkout = (req, res) => {
   const newWorkout = {
     name: body.name,
     mode: body.mode,
-    equipment: body.equipment,
+    timer: body.timer,
+    time: body.time,
     exercises: body.exercises,
   };
   try {
