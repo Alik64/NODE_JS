@@ -58,7 +58,7 @@ const getOneWorkout = (workoutId) => {
 const createNewWorkout = (newWorkout) => {
   try {
     const isAlreadyAdded =
-      DB.workouts.findIndex((workout) => workout.name === newWorkout.name) > -1;
+      DB.workouts.findIndex((workout) => workout.id === newWorkout.id) > -1;
     if (isAlreadyAdded) {
       throw {
         status: 400,
