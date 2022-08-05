@@ -8,7 +8,7 @@ dotenv.config();
 mongoose
   .connect(process.env.MONGO_DB_KEY)
   .then(() => {
-    console.log("DB connected with success");
+    console.log("Database connected with success");
   })
   .catch((error) => console.log("DB error : ", error));
 
@@ -17,9 +17,7 @@ const PORT = process.env.PORT || 4444;
 
 app.use(express.json());
 
-app.post("/auth/register", (req, res) => {
-    
-});
+app.post("/auth/register", (req, res) => {});
 
 app.listen(PORT, (error) => {
   if (error) {
