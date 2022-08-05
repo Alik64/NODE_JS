@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGO_DB_KEY)
+  .connect(process.env.REACT_APP_MONGO_DB_KEY)
   .then(() => {
     console.log("Database connected with success");
   })
@@ -20,7 +20,20 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("AMF");
 });
-app.post("/auth/register", (req, res) => {});
+app.post("/auth/login", (req, res) => {
+  const token = jwt.sign(
+    {
+      email: req.body.email,
+      fullname: "Vasya Pupkin",
+    },
+    process.env.REACT_APP_SECRET
+  );
+
+  res.json({ success: true, token });
+});
+app.post("/auth/register", (req, res) => {
+  res.json({ success: true });
+});
 
 app.listen(PORT, (error) => {
   if (error) {
