@@ -2,6 +2,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import registerValidation from "./validations/auth.js";
 
 dotenv.config();
 
@@ -31,7 +32,7 @@ app.post("/auth/login", (req, res) => {
 
   res.json({ success: true, token });
 });
-app.post("/auth/register", (req, res) => {
+app.post("/auth/register", registerValidation, (req, res) => {
   res.json({ success: true });
 });
 
