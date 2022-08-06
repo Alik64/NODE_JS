@@ -1,10 +1,12 @@
 const { body } = require("express-validator");
 
 const registerValidation = [
-  body("email").isEmail(),
-  body("password").isLength({ min: 5 }),
-  body("name").isLength({ min: 3 }),
-  body("avatarUrl").optional().isURL(),
+  body("email", "Invalid email format").isEmail(),
+  body("password", "Passwords must be at least 5 characters").isLength({
+    min: 5,
+  }),
+  body("name", "Enter your name").isLength({ min: 3 }),
+  body("avatarUrl", "Invalid url").optional().isURL(),
 ];
 
 module.exports = {
