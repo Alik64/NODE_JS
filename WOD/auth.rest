@@ -5,7 +5,7 @@ content-type: application/json
 {
     "email" : "test@test.ru",
     "password" : "test1",
-    "name": "Vasya Pupkin",
+    "name": "Albert",
     "avatarUrl" : "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/0e/0eabb3ba0f9f3c6ff1602d7ff6b00723e56329e0.jpg"
 
 }
