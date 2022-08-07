@@ -44,18 +44,28 @@ app.post("/auth/register", registerValidation, async (req, res) => {
 
     const password = req.body.password;
     const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash(password, salt);
+    const hash = await bcrypt.hash(password, salt);
 
     const doc = new UserModel({
       email: req.body.email,
       fullName: req.body.fullName,
       avatarUrl: req.body.avatarUrl,
-      passwordHash,
+      passwordHash: hash,
     });
 
     const newUser = await doc.save();
 
-    res.json(newUser);
+    const token = jwt.sign(
+      {
+        _id: newUser._id,
+      },
+      process.env.REACT_APP_SECRET,
+      {
+        expiresIn: "30d",
+      }
+    );
+    const { passwordHash, ...userData } = newUser._doc;
+    res.json({ ...userData, token });
   } catch (error) {
     res.status(500).json({
       message: "Impossible to register new user.",
