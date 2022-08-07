@@ -8,7 +8,7 @@ const createNewUser = (req, res) => {
   }
   const doc = new UserModel({
     email: req.body.email,
-    password: req.body.password,
+    passwordHash: req.body.password,
     name: req.body.name,
     avatarUrl: req.body.avatarUrl,
   });
