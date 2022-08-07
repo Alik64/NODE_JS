@@ -36,25 +36,31 @@ app.post("/auth/login", (req, res) => {
   res.json({ success: true, token });
 });
 app.post("/auth/register", registerValidation, async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json(errors.array());
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json(errors.array());
+    }
+
+    const password = req.body.password;
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    const doc = new UserModel({
+      email: req.body.email,
+      fullName: req.body.fullName,
+      avatarUrl: req.body.avatarUrl,
+      passwordHash,
+    });
+
+    const newUser = await doc.save();
+
+    res.json(newUser);
+  } catch (error) {
+    res.status(500).json({
+      message: "Impossible to register new user.",
+    });
   }
-
-  const password = req.body.password;
-  const salt = await bcrypt.genSalt(10);
-  const passwordHash = await bcrypt.hash(password, salt);
-
-  const doc = new UserModel({
-    email: req.body.email,
-    fullName: req.body.fullName,
-    avatarUrl: req.body.avatarUrl,
-    passwordHash,
-  });
-
-  const newUser = await doc.save();
-
-  res.json(newUser);
 });
 
 app.listen(PORT, (error) => {
