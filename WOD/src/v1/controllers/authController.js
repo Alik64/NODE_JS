@@ -19,10 +19,14 @@ const createNewUser = async (req, res) => {
     name: req.body.name,
     avatarUrl: req.body.avatarUrl,
   });
-
-  const createdUser = await Auth.createNewUser(newUser);
-
-  res.json(createdUser);
+  try {
+    const createdUser = await Auth.createNewUser(newUser);
+    res.status(201).json({ success: true, data: createdUser });
+  } catch (error) {
+    res
+      .status(error?.status || error)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
 };
 
 module.exports = {
