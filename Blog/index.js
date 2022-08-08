@@ -24,16 +24,37 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("AMF");
 });
-app.post("/auth/login", (req, res) => {
-  const token = jwt.sign(
-    {
-      email: req.body.email,
-      fullname: "Vasya Pupkin",
-    },
-    process.env.REACT_APP_SECRET
-  );
+app.post("/auth/login", async (req, res) => {
+  try {
+    const user = await UserModel.findOne({ email: req.body.email });
 
-  res.json({ success: true, token });
+    if (!user) {
+      return res.status(400).json({ message: "Impossible to login 404" });
+    }
+
+    const isValidPassword = await bcrypt.compare(
+      req.body.password,
+      user._doc.passwordHash
+    );
+
+    if (!isValidPassword) {
+      return res.status(400).json({ message: "Invalid login or password" });
+    }
+    const token = jwt.sign(
+      {
+        _id: user._id,
+      },
+      process.env.REACT_APP_SECRET,
+      {
+        expiresIn: "30d",
+      }
+    );
+    const { passwordHash, ...userData } = user._doc;
+    res.json({ ...userData, token });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Impossible to login" });
+  }
 });
 app.post("/auth/register", registerValidation, async (req, res) => {
   try {

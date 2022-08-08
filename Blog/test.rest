@@ -4,17 +4,16 @@ POST http://localhost:4444/auth/login
 content-type: application/json
 
 {
-    "email" : "test@test.ru",
-    "password" : "test"
+    "email" : "test1@test.ru",
+    "password" : "test1"
 }
 ###
 POST http://localhost:4444/auth/register
 content-type: application/json
 
 {
-    "email" : "test@test.ru",
+    "email" : "test1@test.ru",
     "password" : "test1",
     "fullName": "Vasya Pupkin",
     "avatarUrl" : "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/0e/0eabb3ba0f9f3c6ff1602d7ff6b00723e56329e0.jpg"
-
 }
