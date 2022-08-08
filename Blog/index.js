@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import { registerValidation } from "./validations/auth.js";
 import { validationResult } from "express-validator";
 import UserModel from "./models/User.js";
-
+import checkAuth from "./utils/checkAuth.js";
 dotenv.config();
 
 mongoose
@@ -93,7 +93,19 @@ app.post("/auth/register", registerValidation, async (req, res) => {
     });
   }
 });
-
+app.get("/auth/me", checkAuth, async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const { passwordHash, ...userData } = user._doc;
+    res.json(userData);
+  } catch (error) {
+    console.log("error : ", error);
+    res.status(500).json({ message: "Access denied" });
+  }
+});
 app.listen(PORT, (error) => {
   if (error) {
     return error;
