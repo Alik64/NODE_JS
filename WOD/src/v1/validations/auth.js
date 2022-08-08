@@ -8,7 +8,14 @@ const registerValidation = [
   body("name", "Enter your name").isLength({ min: 3 }),
   body("avatarUrl", "Invalid url").optional().isURL(),
 ];
+const authValidation = [
+  body("email", "Invalid email format").isEmail(),
+  body("password", "Passwords must be at least 5 characters").isLength({
+    min: 5,
+  }),
+];
 
 module.exports = {
   registerValidation,
+  authValidation,
 };

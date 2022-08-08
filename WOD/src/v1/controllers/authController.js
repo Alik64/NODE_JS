@@ -41,6 +41,46 @@ const createNewUser = async (req, res) => {
   }
 };
 
+const login = async (req, res) => {
+  try {
+    const user = await Auth.login(req.body.email);
+
+    if (!user) {
+      return res.status(400).json({
+        message: "Impossible to login",
+      });
+    }
+
+    const isValidPass = await bcrypt.compare(
+      req.body.password,
+      user._doc.passwordHash
+    );
+
+    if (!isValidPass) {
+      return res.status(400).json({
+        message: "Invalid login or password",
+      });
+    }
+
+    const token = jwt.sign(
+      {
+        _id: user._id,
+      },
+      process.env.REACT_APP_SECRET,
+      {
+        expiresIn: "30d",
+      }
+    );
+
+    const { passwordHash, ...userData } = user._doc;
+    res.status(201).json({ success: true, data: { ...userData, token } });
+  } catch (error) {
+    res.status(500).json({
+      message: "Impossible to login",
+    });
+  }
+};
 module.exports = {
+  login,
   createNewUser,
 };

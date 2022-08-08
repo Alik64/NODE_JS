@@ -1,3 +1,5 @@
+const UserModel = require("../models/User.js");
+
 const createNewUser = async (createdUser) => {
   try {
     const newUser = await createdUser.save();
@@ -7,6 +9,15 @@ const createNewUser = async (createdUser) => {
   }
 };
 
+const login = async (email) => {
+  try {
+    const authUser = UserModel.findOne({ email: email });
+    return authUser;
+  } catch (error) {
+    throw { status: error?.status || 500, message: error?.message || error };
+  }
+};
 module.exports = {
   createNewUser,
+  login,
 };
