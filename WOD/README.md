@@ -25,3 +25,7 @@ Inside our service methods we'll be handling our business logic like transformin
 ### DATA ACCESS
 
 Database and a collection of methods that actually handle the database interaction.
+
+ENVIRONEMENT
+process.env.REACT_APP_MONGO_DB_URL
+process.env.REACT_APP_SECRET
