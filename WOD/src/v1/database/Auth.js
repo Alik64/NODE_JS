@@ -17,7 +17,18 @@ const login = async (email) => {
     throw { status: error?.status || 500, message: error?.message || error };
   }
 };
+
+const getMe = async (userId) => {
+  try {
+    const userMe = await UserModel.findById(userId);
+    return userMe;
+  } catch (error) {
+    console.log("error : ", error);
+    res.status(500).json({ message: "Access denied" });
+  }
+};
 module.exports = {
   createNewUser,
   login,
+  getMe,
 };
