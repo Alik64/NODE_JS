@@ -5,10 +5,14 @@ import dotenv from "dotenv";
 import {
   loginValidation,
   registerValidation,
+  postCreateValidation,
 } from "./validations/validations.js";
 
 import * as UserController from "./controllers/UserController.js";
+import * as PostController from "./controllers/PostController.js";
+
 import checkAuth from "./utils/checkAuth.js";
+
 dotenv.config();
 
 mongoose
@@ -26,9 +30,16 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ message: "AMF" });
 });
+
 app.post("/auth/login", loginValidation, UserController.login);
 app.post("/auth/register", registerValidation, UserController.register);
 app.get("/auth/me", checkAuth, UserController.getMe);
+
+// app.get("/posts", PostController.getAll);
+// app.get("/posts/:id", PostController.getOne);
+app.post("/posts", checkAuth, postCreateValidation, PostController.create);
+// app.delete("/posts/:id", PostController.delete);
+// app.patch("/posts/:id", PostController.update);
 
 app.listen(PORT, (error) => {
   if (error) {
