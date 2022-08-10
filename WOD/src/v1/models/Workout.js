@@ -6,7 +6,7 @@ const WorkoutSchema = new Schema(
     mode: { type: String, required: true },
     timer: { type: String, required: true },
     time: Number,
-    exercises: [{ type: String }],
+    exercises: { type: [String], required: true },
   },
   {
     timestamps: true,
