@@ -16,7 +16,18 @@ const loginValidation = [
   }),
 ];
 
+const workoutCreateValidation = [
+  body("name", "Enter workout title").isLength({ min: 3 }).isString(),
+  body("mode", "Enter a text").isString(),
+  body("timer", "Enter a text").isString(),
+  body("time", "Enter a text").optional().isInt(),
+  body("exercises", "Invalid format, must be an array").isString(),
+];
+const recordCreateValidation = [body("record", "Enter a record").isString()];
+
 module.exports = {
   registerValidation,
   loginValidation,
+  workoutCreateValidation,
+  recordCreateValidation,
 };

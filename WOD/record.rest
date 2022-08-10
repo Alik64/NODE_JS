@@ -15,7 +15,7 @@ POST http://localhost:8080/api/v1/records
 content-type: application/json
 
 {
-  "workout": "d8be2362-7b68-4ea4-a1f6-03f8bc4eede7",
+  "workout": "62f426f55414afe5848c4e66",
   "record": "5:23 minutes"
 }
 

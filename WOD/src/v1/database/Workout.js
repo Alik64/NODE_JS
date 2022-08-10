@@ -1,3 +1,25 @@
+const create = async (createdWorkout) => {
+  try {
+    const newWorkout = await createdWorkout.save();
+    return newWorkout;
+  } catch (error) {
+    console.log(error);
+    throw {
+      status: error?.status || 500,
+      message: "Impossible to create workout",
+    };
+  }
+};
+module.exports = {
+  create,
+  // getAllWorkouts,
+  // getRandomWorkout,
+  // createNewWorkout,
+  // getOneWorkout,
+  // updateOneWorkout,
+  // deleteOneWorkout,
+};
+
 // const getAllWorkouts = (filterParams) => {
 //   const { page, mode, length, equipment } = filterParams;
 
@@ -116,24 +138,3 @@
 //     throw { status: error?.status || 500, message: error?.message || error };
 //   }
 // };
-const create = async (createdWorkout) => {
-  try {
-    const newWorkout = await createdWorkout.save();
-    return newWorkout;
-  } catch (error) {
-    console.log(error);
-    throw {
-      status: error?.status || 500,
-      message: "impossible to create workout",
-    };
-  }
-};
-module.exports = {
-  create,
-  // getAllWorkouts,
-  // getRandomWorkout,
-  // createNewWorkout,
-  // getOneWorkout,
-  // updateOneWorkout,
-  // deleteOneWorkout,
-};
