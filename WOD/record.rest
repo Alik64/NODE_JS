@@ -13,6 +13,7 @@ GET http://localhost:8080/api/v1/workouts/4a3d9aaa-608c-49a7-a004-66305ad4ab50/r
 # Create new record
 POST http://localhost:8080/api/v1/records
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmYxNzNhZjQ4Y2JhYTUwNTA0YjQ1OWIiLCJpYXQiOjE2NjAxNzM5MTQsImV4cCI6MTY2Mjc2NTkxNH0.SyYEvG0oYFkbsq5uW8jX89DqW9ipICuE5qwX43q8YSM
 
 {
   "workout": "62f426f55414afe5848c4e66",
