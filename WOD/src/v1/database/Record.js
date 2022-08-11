@@ -2,8 +2,8 @@ const RecordModel = require("../models/Record.js");
 
 const getAll = async () => {
   try {
-    const records = RecordModel.find();
-    console.log("records : ", records);
+    const records = RecordModel.find().populate("user").exec();
+
     return records;
   } catch (error) {
     console.log(error);
