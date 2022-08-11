@@ -4,7 +4,7 @@ const recordController = require("../controllers/recordController.js");
 const authMiddleware = require("../middleware/auth.middleware.js");
 const { recordCreateValidation } = require("../validations/validations.js");
 
-// router.get("/", recordController.getAllRecords);
+router.get("/", recordController.getAll);
 // router.get("/:recordId", recordController.getOneRecord);
 
 router.post(

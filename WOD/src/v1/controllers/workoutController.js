@@ -116,7 +116,16 @@ const Workout = require("../database/Workout.js");
 //       .send({ status: "FAILED", data: { error: error?.message || error } });
 //   }
 // };
-
+const getAll = async (req, res) => {
+  try {
+    const workouts = await Workout.getAll();
+    res.json(workouts);
+  } catch (error) {
+    res
+      .status(error?.status || 500)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
+};
 const create = async (req, res) => {
   try {
     const doc = new WorkoutModel({
@@ -137,7 +146,7 @@ const create = async (req, res) => {
 };
 
 module.exports = {
-  // getAll,
+  getAll,
   // getRandom,
   // getOne,
   create,

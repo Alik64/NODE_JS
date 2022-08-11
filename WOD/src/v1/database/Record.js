@@ -1,3 +1,19 @@
+const RecordModel = require("../models/Record.js");
+
+const getAll = async () => {
+  try {
+    const records = RecordModel.find();
+    console.log("records : ", records);
+    return records;
+  } catch (error) {
+    console.log(error);
+    throw {
+      status: error?.status || 500,
+      message: "Impossible to get records",
+    };
+  }
+};
+
 const create = async (createdRecord) => {
   try {
     const newRecord = await createdRecord.save();
@@ -12,11 +28,7 @@ const create = async (createdRecord) => {
 };
 
 module.exports = {
-  // getRecordForWorkout,
-  // getAllRecords,
-  // getOneRecord,
-  // createNewRecord,
-  // deleteOneRecord,
+  getAll,
   create,
 };
 

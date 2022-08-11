@@ -1,3 +1,16 @@
+const WorkoutModel = require("../models/Workout.js");
+const getAll = async () => {
+  try {
+    const workouts = WorkoutModel.find();
+    return workouts;
+  } catch (error) {
+    console.log(error);
+    throw {
+      status: error?.status || 500,
+      message: "Impossible to get workouts",
+    };
+  }
+};
 const create = async (createdWorkout) => {
   try {
     const newWorkout = await createdWorkout.save();
@@ -12,6 +25,7 @@ const create = async (createdWorkout) => {
 };
 module.exports = {
   create,
+  getAll,
   // getAllWorkouts,
   // getRandomWorkout,
   // createNewWorkout,

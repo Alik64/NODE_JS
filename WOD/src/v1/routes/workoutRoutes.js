@@ -5,7 +5,7 @@ const { workoutCreateValidation } = require("../validations/validations.js");
 
 const router = express.Router();
 
-// router.get("/", workoutController.getAllWorkouts);
+router.get("/", workoutController.getAll);
 // router.get("/random", workoutController.getRandomWorkout);
 // router.get("/:workoutId", workoutController.getOneWorkout);
 // router.get("/:workoutId/records", recordController.getRecordForWorkout);
