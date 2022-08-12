@@ -1,3 +1,3 @@
 # NODE_JS
-<img src="nodejs.gif" alt="nodejs"/>
+<img src="nodejs.gif" alt="nodejs" width='100'/>
 Backend folders for my different projects.
