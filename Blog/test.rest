@@ -33,3 +33,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmYxN2FiM
     "imageUrl" : "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/0e/0eabb3ba0f9f3c6ff1602d7ff6b00723e56329e0.jpg",
     "tags": ["story","nevergiveup", "first one"]
 }
+
+###
+PATCH http://localhost:4444/posts/62f50650b264ca2d397f293d
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmYxN2FiM2U0Y2QzZjQ3OGNhNjIxMjciLCJpYXQiOjE2NjAxNjkxOTQsImV4cCI6MTY2Mjc2MTE5NH0.zkAUpAvwuQZzi0ABrESraNHQK6RljsM_2rgv3d-G-vo
+
+{
+    "title" : "My second post to update",
+    "text" : "This is my second post. Let's go mf !!! :D",
+    "imageUrl" : "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/0e/0eabb3ba0f9f3c6ff1602d7ff6b00723e56329e0.jpg",
+    "tags": ["story","nevergiveup", "first one"]
+}
+
