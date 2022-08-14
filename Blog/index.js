@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 4444;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({ message: "AMF" });
+  res.json({ message: "Hello world !" });
 });
 
 app.post("/auth/login", loginValidation, UserController.login);
