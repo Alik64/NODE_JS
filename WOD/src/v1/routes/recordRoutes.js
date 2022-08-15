@@ -15,5 +15,6 @@ router.post(
 );
 
 router.delete("/:id", authMiddleware, recordController.remove);
+router.patch("/:id", authMiddleware, recordController.update);
 
 module.exports = router;

@@ -71,9 +71,32 @@ const remove = async (req, res) => {
     });
   }
 };
+const update = async (req, res) => {
+  try {
+    const recordId = req.params.id;
+
+    await RecordModel.updateOne(
+      {
+        _id: recordId,
+      },
+      {
+        record: req.body.record,
+        workout: req.body.workout,
+        user: req.userId,
+      }
+    );
+    res.json({ success: true });
+  } catch (error) {
+    console.log("error : ", error);
+    res.status(500).json({
+      message: "Impossible to update a record",
+    });
+  }
+};
 module.exports = {
   getAll,
   getOne,
   create,
   remove,
+  update,
 };
