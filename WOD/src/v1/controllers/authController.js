@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/User.js");
 
-const createNewUser = async (req, res) => {
+const register = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json(errors.array());
@@ -21,7 +21,7 @@ const createNewUser = async (req, res) => {
     avatarUrl: req.body.avatarUrl,
   });
   try {
-    const createdUser = await Auth.createNewUser(newUser);
+    const createdUser = await newUser.save();
 
     const token = jwt.sign(
       {
@@ -43,7 +43,7 @@ const createNewUser = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const user = await Auth.login(req.body.email);
+    const user = await UserModel.findOne({ email: req.body.email });
 
     if (!user) {
       return res.status(400).json({
@@ -73,8 +73,9 @@ const login = async (req, res) => {
     );
 
     const { passwordHash, ...userData } = user._doc;
-    res.status(201).json({ success: true, data: { ...userData, token } });
+    res.json({ ...userData, token });
   } catch (error) {
+    console.log("error : ", error);
     res.status(500).json({
       message: "Impossible to login",
     });
@@ -95,6 +96,6 @@ const getMe = async (req, res) => {
 };
 module.exports = {
   login,
-  createNewUser,
+  register,
   getMe,
 };
