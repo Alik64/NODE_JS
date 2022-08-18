@@ -1,5 +1,5 @@
 import express from "express";
-
+import multer from "multer";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import {
@@ -23,10 +23,27 @@ mongoose
   .catch((error) => console.log("DB error : ", error));
 
 const app = express();
+const storage = multer.diskStorage({
+  destination: (_, __, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (_, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
 const PORT = process.env.PORT || 4444;
 
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
+app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
+  res.json({
+    url: `/uploads/${req.file.originalname}`,
+  });
+});
 app.get("/", (req, res) => {
   res.json({ message: "Hello world !" });
 });
