@@ -1,12 +1,12 @@
-# REST API for a CrossFit Training Application.
+# REST API for a CrossTraining Application.
 
-Create, update and delete your WOD's (Workouts of the Day)
+CRUD for WOD's (Workouts of the Day)
 
 ## ARCHITECTURE
 
-Request => Router => Controller => Service Layer => Data Access Layer
+Request => Router => Controller
 
-Response <= Router <= Controller <= Service Layer <= Data Access Layer
+Response <= Router <= Controller
 
 ## LAYERS
 
@@ -16,15 +16,11 @@ Inside our router we will call a different method handled by our controller for 
 
 ### CONTROLLER
 
-Inside our workout controller we extract the request body for creating a new workout and we pass it on to the workout service.
+MongoDB management
 
-### SERVICE
+### SERVICES
 
-Inside our service methods we'll be handling our business logic like transforming data structures and communicating with our Database Layer.
-
-### DATA ACCESS
-
-Database and a collection of methods that actually handle the database interaction.
+MULTER - static files control
 
 ENVIRONEMENT
 process.env.REACT_APP_MONGO_DB_URL
