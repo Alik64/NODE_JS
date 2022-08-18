@@ -60,7 +60,7 @@ app.post("/posts", checkAuth, postCreateValidation, PostController.create);
 
 app.delete("/posts/:id", checkAuth, PostController.remove);
 
-app.patch("/posts/:id", checkAuth, PostController.update);
+app.patch("/posts/:id", checkAuth, postCreateValidation, PostController.update);
 
 app.listen(PORT, (error) => {
   if (error) {
