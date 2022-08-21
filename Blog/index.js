@@ -12,6 +12,7 @@ import * as UserController from "./controllers/UserController.js";
 import * as PostController from "./controllers/PostController.js";
 
 import checkAuth from "./utils/checkAuth.js";
+import handleValidationErrors from "./utils/handleValidationErrors.js";
 
 dotenv.config();
 
@@ -48,19 +49,41 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello world !" });
 });
 
-app.post("/auth/login", loginValidation, UserController.login);
-app.post("/auth/register", registerValidation, UserController.register);
+app.post(
+  "/auth/login",
+  loginValidation,
+  handleValidationErrors,
+  UserController.login
+);
+app.post(
+  "/auth/register",
+  registerValidation,
+  handleValidationErrors,
+  UserController.register
+);
 
 app.get("/auth/me", checkAuth, UserController.getMe);
 
 app.get("/posts", PostController.getAll);
 app.get("/posts/:id", PostController.getOne);
 
-app.post("/posts", checkAuth, postCreateValidation, PostController.create);
+app.post(
+  "/posts",
+  checkAuth,
+  postCreateValidation,
+  handleValidationErrors,
+  PostController.create
+);
 
 app.delete("/posts/:id", checkAuth, PostController.remove);
 
-app.patch("/posts/:id", checkAuth, postCreateValidation, PostController.update);
+app.patch(
+  "/posts/:id",
+  checkAuth,
+  postCreateValidation,
+  handleValidationErrors,
+  PostController.update
+);
 
 app.listen(PORT, (error) => {
   if (error) {
