@@ -7,11 +7,22 @@ const {
 
 const authController = require("../controllers/authController.js");
 const authMiddleware = require("../middleware/auth.middleware");
+const validationErrorsMdw = require("../middleware/validationErrors.middleware");
 
 const router = express.Router();
 
 router.get("/me", authMiddleware, authController.getMe);
-router.post("/register", registerValidation, authController.register);
-router.post("/login", loginValidation, authController.login);
+router.post(
+  "/register",
+  registerValidation,
+  validationErrorsMdw,
+  authController.register
+);
+router.post(
+  "/login",
+  loginValidation,
+  validationErrorsMdw,
+  authController.login
+);
 
 module.exports = router;
