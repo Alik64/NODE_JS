@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 import {
   loginValidation,
   registerValidation,
@@ -34,7 +35,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const PORT = process.env.PORT || 4444;
-
+app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
