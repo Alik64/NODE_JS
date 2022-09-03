@@ -7,7 +7,7 @@ const validationErrorsMdw = require("../middleware/validationErrors.middleware.j
 const router = express.Router();
 
 router.get("/", workoutController.getAll);
-// router.get("/random", workoutController.getRandomWorkout);
+router.get("/random", workoutController.getRandom);
 router.get("/:id", workoutController.getOne);
 
 router.post(

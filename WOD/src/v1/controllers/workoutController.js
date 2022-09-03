@@ -10,6 +10,17 @@ const getAll = async (req, res) => {
       .json({ message: "Impossible to get workouts" });
   }
 };
+const getRandom = async (req, res) => {
+  try {
+    const workouts = await WorkoutModel.find();
+    const randomWorkout = workouts[Math.floor(Math.random() * workouts.length)];
+    res.json(randomWorkout);
+  } catch (error) {
+    res
+      .status(error?.status || 500)
+      .json({ message: "Impossible to get workout" });
+  }
+};
 const getOne = async (req, res) => {
   try {
     const workoutId = req.params.id;
@@ -98,7 +109,7 @@ const update = async (req, res) => {
 };
 module.exports = {
   getAll,
-  // getRandom,
+  getRandom,
   getOne,
   create,
   update,
